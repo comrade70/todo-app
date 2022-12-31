@@ -1,0 +1,48 @@
+<%- include("header") %>
+
+<style>
+
+    .navbar-brand{
+        color:white;
+        padding-left: 80px;
+    }
+
+    .navbar-brand:hover{
+        color:white;
+    }
+
+    .bi-x-lg{
+        color:red;
+        margin-left: 20px;
+    }
+
+    .list-group-item{
+        text-transform: capitalize;
+        color:white;
+        background: black;
+    }
+</style>
+
+<nav class="navbar navbar-light bg-dark">
+    <a href="#" class="navbar-brand">Todo App</a>
+</nav>
+
+<div class="container mt-5">
+    <form action="/add/todo" method= "POST" class="d-flex">
+        <input type="text" name="todo" class="form-control" placeholder="Enter a todo">
+        <input type="submit" value="Add todo" class="btn btn-success btn-md mx-2">
+    </form>
+
+
+    <ul class="list-group my-5">
+
+        <% todo.forEach(todos => { %>
+        <li class="list-group-item"><%= todos.todo %>
+        <a href = "/delete/todo/<%= todos._id %>" i class="bi bi-x-lg"></i></a>
+        <% }) %></li>
+     
+    </ul>
+</div>
+
+
+<%- include("footer") %>
